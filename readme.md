@@ -31,12 +31,14 @@ pip freeze >  requirements.txt
 ### 别人 / 服务器上调用
 pip install -r requirements.txt
 
+# API
+
 ## 返回api/网站 全部内容
 cmd : curl -v URL
 powershell : curl.exe -v URL
 
 ---
-### main.py
+### main.py ——>handmade.py
 
 实践层面必写Content-Type
 通过：
@@ -50,3 +52,54 @@ self.send_header("Content-Type", "text/html; charset=utf-8") # text/plain
 
 ---
 f12，复制cURL
+
+## python常用后端框架
+Flask、Django、FastAPI
+
+## FastAPI
+FastAPI 负责“接口该做什么”，uvicorn 负责“让接口跑起来”。FastAPI 自己不会守着端口等请求；uvicorn 收到请求后，会把它交给 FastAPI 处理。
+
+### main.py用uvicorn启动
+手动 ：  
+`uvicorn main:app --reload`
+or
+`fastapi dev`
+
+main:app拆开看：
+`main` - 文件(main.py 的名字)
+`app` - 变量(app = FastAPI() 的app)
+`--reload` - 若改了代码，可以自动重启（热更新）
+
+
+若终端提示包不存在(fastapi)，
+尝试`hash -r` - 清空 Shell 的命令路径缓存‌，让系统重新按 $PATH 查找命令
+
+---
+`__pycache__`下面的`pyc`文件 - python运行代码时 自动生成的缓存
+让python下一次加载代码时 可以快一点
+不是源码，是构建产物
+删了也无所谓，再运行时自动生成
+所以在`.gitignore`中忽略该文件夹内容
+
+### api文档
+Documentation at http://xxURL/docs
+自动生成，可用来测试
+
+### api-post
+`from pydantic import BaseModel`， 数据校验
+`class AnalyzeRequest(BaseModel): `按照class定义的要求做校验
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `值 : 类型(text : str)`
+@app.post("/api/analyze") 
+def analyze(req: AnalyzeRequest):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return {
+
+}
+
+#### mac : 
+curl http://localhost:8000/api/analyze \
+  -H "Content-Type: application/json" \
+  -d '{"text": "今天的风很轻，适合把想法写下来"}'
+#### windows: ？？？？？
+curl.exe -i http://localhost:8000/api/analyze `
+  -H "Content-Type: application/json" `
+  -d '{"text": "今天的风很轻，适合把想法写下来"}'

@@ -99,7 +99,28 @@ def analyze(req: AnalyzeRequest):
 curl http://localhost:8000/api/analyze \
   -H "Content-Type: application/json" \
   -d '{"text": "今天的风很轻，适合把想法写下来"}'
-#### windows: ？？？？？
-curl.exe -i http://localhost:8000/api/analyze `
-  -H "Content-Type: application/json" `
-  -d '{"text": "今天的风很轻，适合把想法写下来"}'
+#### windows: ？？？？？（理论上不太用纠结该部分，反正也不用curl调用）
+因为引号转义的问题，不可以在终端(cmd,powershell)运行
+存成文件执行：
+powershell(.ps1)不可以，
+CMD(.bat)部分可以
+
+将
+
+curl -i -X POST http://localhost:8000/api/analyze ^
+-H "Content-Type: application/json" ^
+-d "{\"text\": \"今天的风很轻，适合把想法写下来\"}"
+
+存成.bat文件并执行
+-X POST 可有可无
+`其依然有问题，中文编码会有错误概率(如working_test.bat 中的  "字段写错了")`
+
+#### 状态代码
+422，请求已经收到，格式也可以理解，但内容不符合接口的要求
+{"detail":[{"type":"missing","loc":["body","text"],"msg":"Field required","input":{"txt":"字段，写错了"}}]}
+
+500 Internal Server Error 服务器内部错误，出现于api写错的时候
+
+4开头，请求方的错；5开头，服务方的错
+
+traceback 错误回溯，先看最后一行；再往上翻，找报错中自己写的文件（非安装依赖里的文件）

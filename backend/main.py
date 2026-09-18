@@ -11,7 +11,11 @@ profile = {
 class AnalyzeRequest(BaseModel):
     # AnalyzeRequest的要求，按照下面的要求做校验
     # 请求体校验不通过，请求方 会被打回
+
     text: str # 要求提供一个叫做 text 的值，且这个值是 字符串 类型
+    # 1. 请求解析
+    # 2. 数据校验
+    # 3. 生成接口文档
 
 
 # fastapi部分：

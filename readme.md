@@ -1,5 +1,55 @@
 <https://xn--ygr25xpohxwz.com/>
 
+# 终端命令
+cd/ls/mkdir/pwd/rm/rmdir......
+cat : 读取文件文本
+rmdir : 删除空目录，要先把里边的隐藏文件删掉(如mac的.DS_Store)
+
+mac: shift + command + . 显示隐藏文件
+ls -la
+
+ls -Force 作用是列出当前目录下的所有文件和文件夹，包括隐藏项，相当于 Linux 里的 ls -a (ls -la)，
+-Force‌：强制显示隐藏文件和系统文件，不加它默认会隐藏这些
+
+方向键 ↑、↓ ：查找曾执行过的命令
+tab ： 自动补全名称
+
+mac / linux
+open ： 用合适的工具去打开
+
+windows 
+start ：用合适的工具去打开
+
+## 创建文件
+touch first_json.py(linux)
+ni first_json.py(windows)
+
+---
+
+# 前端
+
+windows中不自带vim
+vim : 
+1. i(insert)
+2. 可用ctrl(command) + v
+3. ESC退出编辑模式
+4. 输入 shift + :
+5. wq() (write quit)退出并保存
+6. q! 强制退出
+7. :x 条件写入(没试过)
+
+域名 ：
+给机器地址(ipv4,ipv6)起一个方便人记忆和输入的名字
+类比人和手机号（一个域名多个ip、且ip可换）
+
+DNS :
+全球标准(Domain Name System)
+维护域名和ip之间的关系
+上传到DNS
+---
+
+# 后端
+
 ## 对windows
 
 ## 创建虚拟环境（文件中）： 
@@ -16,15 +66,6 @@ PS C:\Users\Administrator\Desktop\project_1\backend> 路径下，
 
 ## .venv 文件夹不可随意移动或重命名，会发生许多问题（路径问题，如pip失效）
 
----
-
-ls -Force 作用是列出当前目录下的所有文件和文件夹，包括隐藏项，相当于 Linux 里的 ls -a，
--Force‌：强制显示隐藏文件和系统文件，不加它默认会隐藏这些
-
-## 创建文件
-touch first_json.py(linux)
-ni first_json.py(windows)
-
 ## python依赖 requirements.txt
 ### 生成 
 pip freeze >  requirements.txt
@@ -38,7 +79,7 @@ cmd : curl -v URL
 powershell : curl.exe -v URL
 
 ---
-### main.py ——>handmade.py
+### main.py 改成了 ——>handmade.py
 
 实践层面必写Content-Type
 通过：

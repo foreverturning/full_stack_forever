@@ -1,8 +1,11 @@
 <https://xn--ygr25xpohxwz.com/>
 
+# 在这个信息爆炸的时代，不要觉得自己这点需要学，那点需要学，很容易丢失自己的节奏
+# 最重要的不是学了很多，而是清楚自己要学什么
+
 # 终端命令
 cd/ls/mkdir/pwd/rm/rmdir......
-cat : 读取文件文本
+cat : 读取文件文本 
 rmdir : 删除空目录，要先把里边的隐藏文件删掉(如mac的.DS_Store)
 
 mac: shift + command + . 显示隐藏文件
@@ -24,6 +27,13 @@ start ：用合适的工具去打开
 touch first_json.py(linux)
 ni first_json.py(windows)
 
+## linux文件夹
+
+/user/bin   可执行程序
+/etc/       各个软件的配置文件 <span id="etc"></span>
+/var/www/   网站文件
+/var/log/   日志文件
+
 ---
 
 # 前端
@@ -38,27 +48,27 @@ vim :
 6. q! 强制退出
 7. :x 条件写入(没试过)
 
-IP地址 :
+## IP地址 :
 ~
 
-域名 ：
+## 域名 ：
 给机器地址(ipv4,ipv6)起一个方便人记忆和输入的名字
 类比人和手机号（一个域名多个ip、且ip可换）
 
-DNS :
+## DNS :
 全球标准(Domain Name System)
 维护域名和ip之间的关系
 (连接 域名 和 IP地址 )
 上传到DNS
 
-端口 ：
+## 端口 ：
 http : 普通访问 默认 80 
 https : 加密访问 默认 443 
 
 : + 数字访问端口(:443)
 <https://xn--ygr25xpohxwz.com:443>
 
-URL :
+## URL :
 域名 + 资源路径(/zero-to-fullstack/)
 <https://xn--ygr25xpohxwz.com/zero-to-fullstack/>
 
@@ -72,8 +82,63 @@ URL :
 7. 端口号问题
 8. 资源路径是否错误
 
-云服务器，选择 操作系统镜像，而非 应用模板
+## 云服务器：
+选择 操作系统镜像，而非 应用模板
 Ubuntu 24.04 LTS (Ubuntu每两年推出一个版本，26年推出26.04) (2404资料多一些)
+
+## 远程登录、退出服务器(SSH)：
+默认用 22 端口
+22 端口， SSH协议端口
+
+终端：
+ssh 用户名@IP
+(ssh Ubuntu@182.254.229.21)
+然后输密码
+然后终端路径会 切换到远程服务器上
+
+退出云服务器，终端 exit
+
+## Nginx
+最主流的web服务器
+默认持续监听80端口，返回网页内容
+
+Ubuntu系统：
+sudo apt update             (更新软件包列表) (superuser do)
+sudo apt install nginx -y   (安装Nginx) <span id="安装nginx"></span>
+systemctl status nginx      (确认 Nginx 正在运行) (systemctl —— systemd的命令行工具)
+
+sudo systemctl start nginx  (启动)<span id="启动nginx"></span>
+
+systemd 是 Linux 操作系统的系统和服务管理器‌，作为系统启动后的第一个进程（PID 1）运行，负责初始化系统并管理所有其他进程和服务。‌‌
+
+Nginx启动后，就可以通过
+http://ip地址 
+访问了
+
+若不输出内容，排查
+1. 在 服务器 中，确定80端口被开放
+2. Nginx配置 中查看，是否在监听其他端口(例如81)
+
+基于[/etc/](#etc)存放各种配置文件，Nginx的配置也在 /etc/下面，
+/etc/nginx/
+
+nginx -v 可以直接查看nginx默认的配置文件路径
+
+sites-available 文件夹里 配置了 80端口 指向什么页面(html)
+/etc/nginx/sites-available          (文件夹)
+/etc/nginx/sites-available/default  (文件,可以[cat](#终端命令))
+
+sites-available (写草稿)
+sites-enabled (决定要不要用)
+
+sites-enabled中的default 软链接 sites-available中的default，
+改available的，enabled的同步生效
+
+## (Nginx相关)常见错误
+ssh连不上 —— 22端口、用户名密码、服务器运行？
+浏览器打不开 —— 80端口、Nginx有没有运行？
+Nginx状态不是active(running) —— [重装nginx](#安装nginx)、[启动nginx](#启动nginx)
+
 ---
 
 # 后端

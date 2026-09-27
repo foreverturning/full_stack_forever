@@ -1,5 +1,9 @@
 <https://xn--ygr25xpohxwz.com/>
 
+<https://www.w3school.com.cn/>
+<https://developer.mozilla.org/zh-CN/>
+<https://www.runoob.com/>
+
 # 在这个信息爆炸的时代，不要觉得自己这点需要学，那点需要学，很容易丢失自己的节奏
 # 最重要的不是学了很多，而是清楚自己要学什么
 
@@ -138,6 +142,26 @@ sites-enabled中的default 软链接 sites-available中的default，
 ssh连不上 —— 22端口、用户名密码、服务器运行？
 浏览器打不开 —— 80端口、Nginx有没有运行？
 Nginx状态不是active(running) —— [重装nginx](#安装nginx)、[启动nginx](#启动nginx)
+
+## HTML,CSS,JavaScript
+HTML             ： 结构和内容，页面上有什么
+css样式          ： head -> style   样式和外观，东西长什么样
+脚本(JavaScript) ： body -> scirpt  行为和交互，发生了什么事要做什么
+
+HTML足够强               (呈现方式)
+ai训练时读取了大量的HTML  (互联网(公开世界)中，最丰富、最常见的文档格式)
+HTML对ai友好             (相较于word、ppt等，更容易被读取、修改、生成)
+HTML对电脑环境要求很低    (浏览器)
+
+ai制作sliders(课件，取代ppt)，太香了
+
+## md
+渲染 ： ctrl + shift + v
+md笔记软件
+- Obsidian
+- typora
+- 熟悉的jupyter
+- 飞书云文档、飞书笔记
 
 ---
 

@@ -4,49 +4,10 @@
     <meta charset="UTF-8">
     <title>我的第一个网页</title>
     <!-- css，样式，样式表 -->
-    <style>
-      body {
-        background-color: #f0f4f8;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: sans-serif;
-      }
-
-      .card {
-        background: white;
-        padding: 40px;
-        border-radius: 12px;
-        text-align: center;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      h1 {
-        color: #2c3e50;
-        margin-bottom: 12px;
-      }
-
-      p {
-        color: #666;
-      }
-
-      button {
-        margin-top: 20px;
-        padding: 10px 24px;
-        background-color: #3498db;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-      }
-
-      button:hover {
-        background-color: #2980b9;
-      }
-    </style>
+    <!-- <style>
+      删掉这里原有内容，移动到script.js中，标签换成<link> 
+    </style> -->
+    <link rel="stylesheet" href="./style.css">
     
   </head>
   <body>
@@ -60,11 +21,10 @@
 
     <!-- 脚本，JavaScript -->
     <!-- 此处定义点击button后的反应，即changeText()函数 -->
-    <script>
-      function changeText() {
-        document.getElementById('msg').textContent = '你刚刚触发了一段 JavaScript。';
-      }
-    </script>
+    <!-- <script>
+      删掉了这里，移动到script.js文件中
+    </script> -->
+    <script src = "script.js"></script>
 
   </body>
 </html>

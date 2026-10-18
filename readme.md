@@ -148,6 +148,12 @@ HTML             ： 结构和内容，页面上有什么
 css样式          ： head -> style   样式和外观，东西长什么样
 脚本(JavaScript) ： body -> scirpt  行为和交互，发生了什么事要做什么
 
+##### 在真实项目里
+style.css -> ```<link rel="stylesheet" href="./style.css">```
+script.js -> ```<script src = "script.js"></script>```
+经常是通用的，有多个html去复用这些内容（一对多）
+在代码里经常用相对路径
+
 HTML足够强               (呈现方式)
 ai训练时读取了大量的HTML  (互联网(公开世界)中，最丰富、最常见的文档格式)
 HTML对ai友好             (相较于word、ppt等，更容易被读取、修改、生成)

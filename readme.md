@@ -3,6 +3,9 @@
 <https://www.w3school.com.cn/>
 <https://developer.mozilla.org/zh-CN/>
 <https://www.runoob.com/>
+在你`Watt Toolkit` 或 `Steamcommunity 302`后，
+搜索`Cloudflare One Client`并配置明白，后面会用到，以后也会大量用到，详细原因不能解释
+注 ： 请尊重民族文化和国家法律
 
 # 在这个信息爆炸的时代，不要觉得自己这点需要学，那点需要学，很容易丢失自己的节奏
 # 最重要的不是学了很多，而是清楚自己要学什么
@@ -42,7 +45,8 @@ ni first_json.py(windows)
 
 # 前端
 
-windows中不自带vim
+windows中不自带vim，windows可以用Edit，
+`winget install Microsoft.Edit`
 vim : 
 1. i(insert)
 2. 可用ctrl(command) + v
@@ -101,6 +105,35 @@ ssh 用户名@IP
 然后终端路径会 切换到远程服务器上
 
 退出云服务器，终端 exit
+
+## SSH（配置github）
+选做
+生成密钥对：    
+`ssh-keygen -t ed25519 -C "你的邮箱"`
+
+ed25519 是一种加密方式（较为安全快速的、哈希值）
+
+`~/.ssh/id_ed25519`（私钥，不要外传）
+`~/.ssh/id_ed25519.pub`（公钥，可提交给平台）
+
+复制公钥
+`cat ~/.ssh/id_ed25519.pub`
+
+添加到 GitHub
+`GitHub -> Settings -> SSH and GPG keys -> New SSH key`
+把公钥粘贴进去保存
+
+验证连通性
+`ssh -T git@github.com`
+注： 
+1. 若 `ssh: connect to host github.com port 22: Connection refused`
+请使用全局代理
+2. 配置 ```GitHub的 SSH 密钥指纹``` <https://docs.github.com/zh/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints> 后
+执行 `ssh -T git@github.com`
+提示
+`Hi foreverturning! You've successfully authenticated, but GitHub does not provide shell access.`后
+即连通成功
+
 
 ## Nginx
 最主流的web服务器
